@@ -37,6 +37,7 @@ class ParseSpider(scrapy.Spider):
     def parse_api(self, response):
         url = 'https://xn--80az8a.xn--d1aqf.xn--p1ai/%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D1%8B/api/object/'
         data = json.loads(response.text)
+        print(data)
         for el in data.get('list', []):
             id = el.get('objId')
             print(id)
