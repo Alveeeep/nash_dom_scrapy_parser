@@ -52,7 +52,7 @@ class ParseSpider(scrapy.Spider):
         data = json.loads(response.text)
         data = data['data']
         res = {}
-        res['name'] = data.get('nameObj')
+        res['name'] = data.get('nameObj') if 'nameObj' in data else None
         res['address'] = data.get('address')
         res['id'] = data.get('id')
         res['commissioning'] = data.get('objReady100PercDt')
