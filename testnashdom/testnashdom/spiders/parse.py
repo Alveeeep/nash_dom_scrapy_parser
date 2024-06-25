@@ -39,6 +39,7 @@ class ParseSpider(scrapy.Spider):
         data = json.loads(response.text)
         for el in data.get('list', []):
             id = el.get('objId')
+            print(id)
             yield scrapy.Request(url=url + str(id), method='GET', headers=self.headers, callback=self.parse_page,
                                  meta={"impersonate": 'chrome110'})
         if self.offset < self.total:
